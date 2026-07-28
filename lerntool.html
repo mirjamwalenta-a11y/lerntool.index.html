@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lern-Tool · A Great Hair Day</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#F7F5F0;font-family:system-ui,sans-serif;min-height:100vh;padding:1.5rem 1rem}
+.wrap{max-width:580px;margin:0 auto}
+.label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#7A7A70;margin-bottom:8px}
+.card{background:#fff;border:1px solid #E2DDD5;border-radius:8px;padding:20px;margin-bottom:12px}
+.btn-primary{width:100%;padding:12px;background:#5B7B6F;color:#fff;border:none;border-radius:6px;font-size:14px;cursor:pointer;font-family:system-ui}
+.btn-primary:disabled{background:#9A9A90;cursor:default}
+.btn-ghost{padding:10px 16px;background:transparent;color:#5B7B6F;border:1px solid #5B7B6F;border-radius:6px;font-size:14px;cursor:pointer;font-family:system-ui}
+.btn-toggle{padding:8px 14px;border-radius:6px;font-size:13px;cursor:pointer;font-family:system-ui;border:1px solid #C8C4BC;background:transparent;color:#7A7A70}
+.btn-toggle.ak{background:#5B7B6F;color:#fff;border-color:#5B7B6F}
+.btn-lj{flex:1;padding:10px 4px;border-radius:8px;font-size:12px;cursor:pointer;font-family:system-ui;font-weight:600;text-align:center;border:2px solid #E2DDD5;background:#fff;color:#7A7A70}
+.btn-lj.ak{border-color:#5B7B6F;background:#EAF0EE;color:#2C2C2C}
+select,textarea,input{width:100%;border:1px solid #E2DDD5;border-radius:6px;padding:10px 12px;font-size:14px;font-family:system-ui;background:#F7F5F0;color:#1C1C1A;outline:none}
+textarea{resize:vertical}
+.fb-g{background:#EAF0EE;border:1px solid #5B7B6F;border-radius:8px;padding:14px;margin-top:10px}
+.fb-r{background:#FDECEA;border:1px solid #C44030;border-radius:8px;padding:14px;margin-top:10px}
+.fb-o{background:#FDF6E3;border:1px solid #C4B86A;border-radius:8px;padding:14px;margin-top:10px}
+.muster{background:#2C2C2C;border-radius:6px;padding:12px;margin-top:8px;font-size:13px;color:#F7F5F0;line-height:1.6}
+.muster-lab{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5B7B6F;margin-bottom:4px}
+.score-box{background:#EAF0EE;border:1px solid #5B7B6F;border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#5B7B6F;font-weight:600}
+.lap-info{background:#EAF0EE;border:1px solid #5B7B6F;border-radius:8px;padding:12px;margin-bottom:12px;font-size:13px;color:#5B7B6F}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.nav-card{background:#fff;border:1px solid #E2DDD5;border-radius:8px;padding:18px 14px;text-align:left;cursor:pointer;transition:border-color 0.15s;width:100%}
+.nav-card:hover{border-color:#5B7B6F}
+.nav-icon{font-size:1.5rem;margin-bottom:6px}
+.nav-title{font-weight:600;color:#1C1C1A;font-size:14px}
+.nav-desc{color:#7A7A70;font-size:12px;margin-top:2px}
+.opt-btn{width:100%;padding:11px 14px;text-align:left;border:1.5px solid #E2DDD5;border-radius:8px;background:#fff;font-size:14px;cursor:pointer;font-family:system-ui;color:#1C1C1A;margin-bottom:8px}
+.opt-btn:disabled{cursor:default}
+.opt-btn.ric{border-color:#5B7B6F;background:#EAF0EE;color:#2C2C2C}
+.opt-btn.fal{border-color:#C44030;background:#FDECEA;color:#C44030}
+.page{display:none}.page.ak{display:block}
+.back-btn{background:none;border:none;color:#7A7A70;cursor:pointer;font-size:13px;padding:0;margin-bottom:12px}
+.tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#5B7B6F;margin-bottom:4px}
+h1{font-size:26px;font-weight:600;color:#1C1C1A;margin-bottom:4px}
+.sub{color:#7A7A70;font-size:14px;margin-bottom:20px}
+.lernplan-box{background:#2C2C2C;border-radius:8px;padding:16px;color:#F7F5F0;font-size:13px;line-height:1.7;white-space:pre-wrap}
+.fortschritt-tipps{background:#2C2C2C;border-radius:8px;padding:16px;color:#F7F5F0;font-size:13px;line-height:1.7;white-space:pre-wrap}
+.fuss{text-align:center;color:#C8C4BC;font-size:11px;margin-top:2rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ── HOME ── -->
+<div id="p-home" class="page ak">
+  <div class="tag">greathairday · Wien</div>
+  <h1>Lern-Tool ✂</h1>
+  <p class="sub">Für Ronya — Lehrlings-Begleitung</p>
+
+  <div class="card">
+    <div class="label">Lehrjahr wählen</div>
+    <div style="display:flex;gap:8px">
+      <button class="btn-lj ak" onclick="wahlLj(this,'1')">1. Lehrjahr</button>
+      <button class="btn-lj" onclick="wahlLj(this,'2')">2. Lehrjahr</button>
+      <button class="btn-lj" onclick="wahlLj(this,'3')">3. Lehrjahr</button>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <button class="nav-card" onclick="zeige('quiz')">
+      <div class="nav-icon">❓</div>
+      <div class="nav-title">Quiz starten</div>
+      <div class="nav-desc">Lernfragen üben</div>
+    </button>
+    <button class="nav-card" onclick="zeige('lernplan')">
+      <div class="nav-icon">📅</div>
+      <div class="nav-title">Lernplan</div>
+      <div class="nav-desc">Wochenplan erstellen</div>
+    </button>
+    <button class="nav-card" onclick="zeige('fortschritt')">
+      <div class="nav-icon">📈</div>
+      <div class="nav-title">Fortschritt</div>
+      <div class="nav-desc">Selbsteinschätzung</div>
+    </button>
+    <button class="nav-card" onclick="zeige('lap')">
+      <div class="nav-icon">🎓</div>
+      <div class="nav-title">LAP-Vorbereitung</div>
+      <div class="nav-desc">Prüfung üben</div>
+    </button>
+  </div>
+</div>
+
+<!-- ── QUIZ ── -->
+<div id="p-quiz" class="page">
+  <button class="back-btn" onclick="zeige('home')">← Zurück</button>
+  <div class="tag">greathairday · Wien</div>
+  <h1>Quiz</h1>
+
+  <div id="quiz-score" style="display:none" class="score-box"></div>
+
+  <div class="card">
+    <div class="label">Thema</div>
+    <select id="quiz-thema" onchange="quizReset()"></select>
+  </div>
+
+  <div class="card" id="quiz-bereich">
+    <button class="btn-primary" onclick="quizNeu()">Frage laden →</button>
+  </div>
+</div>
+
+<!-- ── LERNPLAN ── -->
+<div id="p-lernplan" class="page">
+  <button class="back-btn" onclick="zeige('home')">← Zurück</button>
+  <div class="tag">greathairday · Wien</div>
+  <h1>Lernplan</h1>
+
+  <div class="card">
+    <div class="label">Lernzeit pro Woche</div>
+    <select id="lp-stunden" style="margin-bottom:14px">
+      <option value="2">2 Stunden</option>
+      <option value="3">3 Stunden</option>
+      <option value="5" selected>5 Stunden</option>
+      <option value="7">7 Stunden</option>
+      <option value="10">10 Stunden</option>
+    </select>
+    <button class="btn-primary" onclick="lernplanErstellen()">Lernplan erstellen →</button>
+  </div>
+  <div id="lp-ergebnis" style="display:none" class="card">
+    <div class="label" id="lp-titel"></div>
+    <div class="lernplan-box" id="lp-inhalt"></div>
+  </div>
+</div>
+
+<!-- ── FORTSCHRITT ── -->
+<div id="p-fortschritt" class="page">
+  <button class="back-btn" onclick="zeige('home')">← Zurück</button>
+  <div class="tag">greathairday · Wien</div>
+  <h1>Fortschritt</h1>
+
+  <div class="card">
+    <div class="label">Thema</div>
+    <select id="fs-thema" style="margin-bottom:14px">
+      <option value="">— Thema wählen —</option>
+    </select>
+    <div class="label">Wie fühlst du dich dabei?</div>
+    <textarea id="fs-text" rows="3" placeholder="z.B. Desinfektion verstehe ich gut, aber bei Chemie bin ich unsicher …" style="margin-bottom:14px"></textarea>
+    <button class="btn-primary" onclick="fortschrittAnalyse()">Tipps holen →</button>
+  </div>
+  <div id="fs-ergebnis" style="display:none" class="card">
+    <div class="label">Deine nächsten Schritte</div>
+    <div class="fortschritt-tipps" id="fs-tipps"></div>
+  </div>
+</div>
+
+<!-- ── LAP ── -->
+<div id="p-lap" class="page">
+  <button class="back-btn" onclick="zeige('home')">← Zurück</button>
+  <div class="tag">greathairday · Wien</div>
+  <h1>LAP-Vorbereitung</h1>
+
+  <div class="lap-info">🎓 Typische Prüfungsfragen für die Lehrabschlussprüfung Österreich</div>
+
+  <div class="card">
+    <div class="label">Prüfungsteil</div>
+    <div style="display:flex;gap:8px;margin-bottom:14px">
+      <button class="btn-toggle ak" id="lap-th-btn" onclick="lapWahl('theorie',this)">Theorie</button>
+      <button class="btn-toggle" id="lap-pr-btn" onclick="lapWahl('praxis',this)">Praxis</button>
+    </div>
+    <button class="btn-primary" onclick="lapNeu()">LAP-Frage laden →</button>
+  </div>
+  <div id="lap-ergebnis" style="display:none" class="card">
+    <div class="label" id="lap-typ-label"></div>
+    <p id="lap-frage" style="font-weight:600;color:#1C1C1A;line-height:1.6;font-size:15px;margin-bottom:14px"></p>
+    <div class="muster" id="lap-antwort" style="display:none">
+      <div class="muster-lab">Musterlösung</div>
+      <div id="lap-antwort-txt"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+      <button class="btn-ghost" onclick="lapZeigAntwort()">Antwort zeigen</button>
+      <button class="btn-ghost" onclick="lapNeu()">Nächste Frage</button>
+    </div>
+  </div>
+</div>
+
+<div class="fuss">greathairday.at · Rechte Wienzeile 47 · 1050 Wien</div>
+</div>
+
+<script>
+// ── DATEN ────────────────────────────────────────────────────────
+var LEHRJAHR = '1';
+
+var THEMEN = {
+  '1': ['Hygiene & Schutzmaßnahmen','Unfallverhütung & Arbeitssicherheit','Werkzeugkunde','Haarkunde & Haarstruktur','Hautkunde','Farbenlehre & Coloration','Beratungsgespräch & Kundenkommunikation'],
+  '2': ['Haarschnitt Techniken','Colorationsgrundlagen','Dauerwelle & Umformung','Kopfhautpflege','Fachkunde Chemie','Kundenberatung','Salon-Organisation'],
+  '3': ['Balayage & Strähnen','Umformungen Fortgeschritten','Betriebskunde & Recht','LAP-Vorbereitung','Kundenkommunikation Fortgeschritten','Pflegeprodukte & Wirkstoffe','Herrenservice']
+};
+
+// Fragen-Bank pro Thema
+var FRAGEN = {
+  'Hygiene & Schutzmaßnahmen': [
+    {t:'mc',f:'Welche drei Hygieneebenen gibt es im Friseursalon?',o:['Reinigen, Desinfizieren, Sterilisieren','Waschen, Spülen, Trocknen','Putzen, Einsprühen, Abdecken','Wischen, Sprühen, Lagern'],r:0,e:'Reinigen → Desinfizieren → Sterilisieren. Im Salon wird meist bis zur Desinfektion gearbeitet.'},
+    {t:'mc',f:'Wie lange muss ein Desinfektionsmittel mindestens einwirken?',o:['Sofort abwischen','Mindestens 30 Sekunden','5 Minuten','Über Nacht'],r:1,e:'Mindestens 30 Sekunden. Sofortiges Abwischen macht die Desinfektion wirkungslos.'},
+    {t:'mc',f:'Was gehört zur persönlichen Hygiene im Salon?',o:['Nur Händewaschen','Saubere Kleidung, gepflegte Hände, kurze Nägel, tägliche Körperpflege','Nur saubere Kleidung','Parfüm verwenden'],r:1,e:'Persönliche Hygiene umfasst: saubere Arbeitskleidung, gepflegte Hände, kurze Fingernägel und tägliche Körperpflege.'},
+    {t:'mc',f:'Was ist der Unterschied zwischen Desinfektion und Sterilisation?',o:['Kein Unterschied','Desinfektion tötet Krankheitserreger, Sterilisation tötet ALLE Keime','Sterilisation ist schwächer','Desinfektion ist für Metall'],r:1,e:'Desinfektion reduziert Krankheitserreger. Sterilisation vernichtet alle Keime inkl. Sporen — z.B. für chirurgische Instrumente.'},
+    {t:'mc',f:'Was gehört zur öffentlichen Hygiene?',o:['Nur Händewaschen','Maßnahmen zum Schutz der Bevölkerung: Trinkwasserkontrolle, Abfallentsorgung, Schädlingsbekämpfung','Nur Desinfektion','Salon-Reinigung'],r:1,e:'Öffentliche Hygiene schützt die Bevölkerung durch Trinkwasserkontrolle, Abfallentsorgung und Schädlingsbekämpfung.'},
+  ],
+  'Unfallverhütung & Arbeitssicherheit': [
+    {t:'mc',f:'Was tust du sofort wenn du dich beim Schneiden schneidest?',o:['Weiterarbeiten','Wunde reinigen, Pflaster, Einmalhandschuh','Nur Pflaster','Kunden nach Hause schicken'],r:1,e:'Wunde reinigen, Pflaster, Einmalhandschuh — so schützt du dich und den Kunden.'},
+    {t:'mc',f:'Welchen Schutz trägst du beim Auftragen von Haarfarbe?',o:['Keinen','Einmalhandschuhe und Schürze','Nur Schürze','Nur Handschuhe wenn gewünscht'],r:1,e:'Einmalhandschuhe schützen die Haut vor chemischen Stoffen. Schürze schützt die Kleidung.'},
+    {t:'mc',f:'Was ist bei Schnittverletzungen mit dem Kunden zu tun?',o:['Nichts, heilt von selbst','Wunde versorgen, dokumentieren, ggf. Arzt aufsuchen','Nur ein Pflaster','Ignorieren'],r:1,e:'Wunde versorgen, im Verbandbuch dokumentieren und bei Bedarf Arzt aufsuchen.'},
+  ],
+  'Werkzeugkunde': [
+    {t:'mc',f:'Was ist der Unterschied zwischen Modellierschere und Effilierer?',o:['Kein Unterschied','Modellierschere glatt, Effilierer hat Zähne und dünnt aus','Effilierer ist größer','Nur für Damen'],r:1,e:'Modellierschere: glatte Klingen. Effilierer: gezahnte Klinge — entfernt Volumen ohne Länge zu nehmen.'},
+    {t:'mc',f:'Wie pflegst du eine Haarschere richtig?',o:['Gar nicht','Regelmäßig ölen, reinigen, fachgerecht schleifen lassen','Nur waschen','In Wasser einlegen'],r:1,e:'Scheren regelmäßig ölen, reinigen und beim Fachmann schleifen lassen — so bleiben sie scharf und langlebig.'},
+    {t:'mc',f:'Wofür verwendet man eine Nassrasiermesser?',o:['Haare schneiden','Konturenschnitt und Rasur','Haare färben','Dauerwelle'],r:1,e:'Das Nassrasiermesser wird für präzise Konturen und Rasur verwendet — besonders im Herrenbereich.'},
+  ],
+  'Haarkunde & Haarstruktur': [
+    {t:'mc',f:'Aus welchen drei Schichten besteht ein Haar?',o:['Wurzel, Schaft, Spitze','Cuticula, Cortex, Medulla','Keratin, Melanin, Lipide','Schuppenschicht, Farbschicht, Kern'],r:1,e:'Cuticula (Schuppenschicht außen) → Cortex (enthält Melanin) → Medulla (Markkern innen).'},
+    {t:'mc',f:'Aus welchem Stoff bestehen Haare hauptsächlich?',o:['Kollagen','Melanin','Keratin','Elastin'],r:2,e:'Haare bestehen zu etwa 90% aus Keratin — einem Strukturprotein.'},
+    {t:'mc',f:'Welche vier Haarstrukturen gibt es?',o:['Glatt, wellig, lockig, kraus','Fein, normal, grob, dick','Kurz, mittel, lang, sehr lang','Trocken, normal, fettig, gemischt'],r:0,e:'Die vier Haarstrukturen sind: glatt, wellig, lockig und kraus — bestimmt durch die Form des Haarfollikels.'},
+    {t:'mc',f:'Was bedeutet es wenn Haar porös ist?',o:['Haar ist sehr stark','Die Schuppenschicht ist aufgeraut und Feuchtigkeit entweicht leicht','Haar ist sehr glatt','Haar hat viel Melanin'],r:1,e:'Poröses Haar hat eine beschädigte Cuticula — Feuchtigkeit entweicht schnell, das Haar ist spröde.'},
+  ],
+  'Hautkunde': [
+    {t:'mc',f:'Aus welchen Schichten besteht die Haut?',o:['Cuticula, Cortex, Medulla','Oberhaut, Lederhaut, Unterhaut','Hornschicht, Keimschicht, Unterhaut','Schutz-, Fett-, Muskelschicht'],r:1,e:'Oberhaut (Epidermis), Lederhaut (Dermis), Unterhaut (Subcutis) — drei Schichten mit verschiedenen Funktionen.'},
+    {t:'mc',f:'Was ist der Säureschutzmantel der Haut?',o:['Eine Creme','Ein natürlicher Schutzfilm mit pH 4,5–5,5 der Krankheitserreger abwehrt','Eine Behandlung','Ein Medikament'],r:1,e:'Der Säureschutzmantel ist ein natürlicher Schutzfilm mit leicht saurem pH-Wert — schützt vor Bakterien und Pilzen.'},
+    {t:'mc',f:'Welche Funktion hat die Talgdrüse?',o:['Temperatur regulieren','Talg produzieren der Haut und Haare schützt','Hautzellen bilden','Schadstoffe filtern'],r:1,e:'Talgdrüsen produzieren Talg — dieser schützt Haut und Haare vor dem Austrocknen.'},
+  ],
+  'Farbenlehre & Coloration': [
+    {t:'mc',f:'Welche drei Grundfarben gibt es?',o:['Rot, Grün, Blau','Rot, Gelb, Blau','Orange, Violett, Grün','Schwarz, Weiß, Grau'],r:1,e:'Rot, Gelb und Blau sind die drei Grundfarben — aus ihnen entstehen alle anderen Farben.'},
+    {t:'mc',f:'Was neutralisiert einen orangefarbenen Untergrundton?',o:['Rot','Gelb','Blau','Grün'],r:2,e:'Blau neutralisiert Orange — Komplementärfarben auf dem Farbkreis heben sich gegenseitig auf.'},
+    {t:'mc',f:'Was passiert mit den Haarpigmenten beim Blondieren?',o:['Sie werden dunkler','Das Melanin wird durch Oxidation aufgehellt','Sie verschwinden sofort','Sie werden blau'],r:1,e:'Beim Blondieren oxidiert das Wasserstoffperoxid das Melanin — die Pigmente werden schrittweise aufgehellt.'},
+    {t:'mc',f:'Was ist der pH-Wert von gesundem Haar?',o:['1–2','4,5–5,5','7–8','10–12'],r:1,e:'Gesundes Haar hat einen leicht sauren pH-Wert von 4,5–5,5 — ähnlich wie der Säureschutzmantel der Haut.'},
+  ],
+  'Beratungsgespräch & Kundenkommunikation': [
+    {t:'mc',f:'Was ist der erste Schritt bei einem Neukunden-Beratungsgespräch?',o:['Sofort mit dem Schnitt beginnen','Freundlich begrüßen und nach Wunsch, Vorbehandlungen und Pflegegewohnheiten fragen','Preis nennen','Termin kürzen'],r:1,e:'Freundlich begrüßen, dann aktiv zuhören: Wunsch, Vorbehandlungen und Pflegegewohnheiten erfragen.'},
+    {t:'mc',f:'Warum ist aktives Zuhören im Kundengespräch wichtig?',o:['Ist nicht wichtig','Es verhindert Missverständnisse, schafft Vertrauen und ermöglicht individuellen Service','Spart Zeit','Wirkt professioneller'],r:1,e:'Aktives Zuhören: Nachfragen, Gesagtes zusammenfassen, Verständnis zeigen — so entstehen keine Fehler.'},
+    {t:'mc',f:'Eine Kundin beschwert sich laut. Was ist der erste Schritt?',o:['Zurückdiskutieren','Ruhig bleiben, zuhören, dann gemeinsam Lösung suchen','Chef holen','Alles umsonst anbieten'],r:1,e:'Ruhig bleiben und aktiv zuhören — erst verstehen, dann gemeinsam eine Lösung finden.'},
+    {t:'mc',f:'Warum ist Körpersprache im Kundengespräch wichtig?',o:['Ist unwichtig','Sie vermittelt Interesse, Freundlichkeit und Sicherheit — auch ohne Worte','Nur bei Problemen','Nur bei Neukunden'],r:1,e:'Körpersprache macht 70% der Kommunikation aus — Blickkontakt, offene Haltung und Lächeln schaffen Vertrauen.'},
+  ],
+  // 2. Lehrjahr
+  'Haarschnitt Techniken': [
+    {t:'mc',f:'Was ist der Unterschied zwischen stumpfem und gestuftem Schnitt?',o:['Kein Unterschied','Stumpf = gleiche Länge, gestuft = verschiedene Längen für Bewegung','Gestuft ist kürzer','Stumpf ist moderner'],r:1,e:'Stumpfer Schnitt: alle Haare gleich lang — wirkt voluminöser. Gestuft: verschiedene Längen — gibt Bewegung und Leichtigkeit.'},
+    {t:'mc',f:'Was bedeutet "über Kamm schneiden"?',o:['Über dem Kamm hinaus schneiden','Haare mit Kamm hochheben und darüber schneiden — für kurze Partien','Kamm als Lineal benutzen','Nur für Männer'],r:1,e:'Über Kamm schneiden: Haare mit Kamm anheben und die überstehenden Spitzen abschneiden — typisch für kurze Herrenschnitte.'},
+  ],
+  'Colorationsgrundlagen': [
+    {t:'mc',f:'Was ist der Unterschied zwischen Tönung und Dauerhaftfarbe?',o:['Kein Unterschied','Tönung hält 4–8 Wäschen, Dauerhaftfarbe verändert das Haar dauerhaft','Tönung ist heller','Dauerhaftfarbe ist natürlich'],r:1,e:'Tönung lagert Farbe außen an — wäscht sich aus. Dauerhaftfarbe dringt ins Haar ein und hält dauerhaft.'},
+    {t:'mc',f:'Wofür wird Wasserstoffperoxid bei der Coloration verwendet?',o:['Für den Duft','Zum Aufhellen des Naturpigments und Entwickeln der Haarfarbe','Für die Pflege','Gegen Schuppen'],r:1,e:'Wasserstoffperoxid (H₂O₂) öffnet die Schuppenschicht, hellt Naturpigment auf und entwickelt die Farbmoleküle.'},
+  ],
+  'Dauerwelle & Umformung': [
+    {t:'mc',f:'Was macht das Wellemittel bei einer Dauerwelle?',o:['Färbt das Haar','Bricht die Disulfidbrücken auf damit das Haar die Form annimmt','Klebt Haare zusammen','Macht Haar fester'],r:1,e:'Das Wellemittel löst die Schwefelbrücken im Cortex — das Haar wird weich und nimmt die Form der Wickler an.'},
+    {t:'mc',f:'Was macht der Fixierer bei der Dauerwelle?',o:['Löst die Form wieder','Schließt die Disulfidbrücken in neuer Form','Fügt Farbe hinzu','Trocknet das Haar'],r:1,e:'Der Fixierer (Oxidationsmittel) schließt die Schwefelbrücken wieder — jetzt in der neuen gewellten Form.'},
+  ],
+  'Kopfhautpflege': [
+    {t:'mc',f:'Was ist Seborrhoe?',o:['Trockene Kopfhaut','Übermäßige Talgproduktion der Kopfhaut','Haarausfall','Eine Haarfarbe'],r:1,e:'Seborrhoe = übermäßige Talgproduktion — Kopfhaut und Haare wirken fettig. Ursachen: Hormone, Stress, Ernährung.'},
+  ],
+  'Fachkunde Chemie': [
+    {t:'mc',f:'Was bedeutet pH-Wert?',o:['Protein-Haushalt','Maß für den Säure- oder Basengehalt einer Lösung (Skala 0–14)','Haardicke','Feuchtigkeit'],r:1,e:'pH-Wert misst ob eine Lösung sauer (0–6), neutral (7) oder basisch (8–14) ist. Haar: pH 4,5–5,5.'},
+  ],
+  'Kundenberatung': [
+    {t:'mc',f:'Was ist eine Kontraindikation bei der Coloration?',o:['Graue Haare','Allergie gegen Farbstoffe oder beschädigtes Haar','Kurze Haare','Dunkle Haare'],r:1,e:'Kontraindikationen: bekannte Allergie, stark beschädigtes Haar, offene Kopfhautwunden oder Schwangerschaft.'},
+  ],
+  'Salon-Organisation': [
+    {t:'mc',f:'Was gehört zu einem professionellen Terminmanagement?',o:['Termine nur telefonisch','Pünktlichkeit, realistische Zeitplanung, Erinnerungen, Pufferzeiten einplanen','Keine Planung nötig','Nur Online-Buchung'],r:1,e:'Gutes Terminmanagement: realistische Zeitplanung, Pufferzeiten, Terminerinnerungen und pünktliche Ausführung.'},
+  ],
+  // 3. Lehrjahr
+  'Balayage & Strähnen': [
+    {t:'mc',f:'Was ist der Unterschied zwischen Balayage und klassischen Strähnen?',o:['Kein Unterschied','Balayage = manuell aufgemalt für natürlichen Effekt, Strähnen = mit Folie für gleichmäßigeres Ergebnis','Balayage ist dunkler','Strähnen sind moderner'],r:1,e:'Balayage wird frei Hand aufgemalt — natürlicher Sonnenlicht-Effekt. Strähnen mit Folie geben ein gleichmäßigeres, kontrastierteres Ergebnis.'},
+  ],
+  'Umformungen Fortgeschritten': [
+    {t:'mc',f:'Was ist der Unterschied zwischen saurer und alkalischer Dauerwelle?',o:['Kein Unterschied','Saure DW schonender (pH 6–7) für sensitives Haar, alkalische DW stärker (pH 8–9) für normales Haar','Alkalisch ist immer besser','Sauer ist für Männer'],r:1,e:'Saure Dauerwelle: schonend, für sensitives/gefärbtes Haar. Alkalische Dauerwelle: stärker, für gesundes/resistentes Haar.'},
+  ],
+  'Betriebskunde & Recht': [
+    {t:'mc',f:'Was regelt das Arbeitszeitgesetz für Lehrlinge?',o:['Keine Regeln','Max. 8 Std./Tag, 40 Std./Woche, Ruhepausen und Wochenruhe','Unbegrenzte Arbeitszeit','Nur 4 Stunden täglich'],r:1,e:'Das Arbeitszeitgesetz schützt Lehrlinge: max. 8 Stunden täglich, 40 Stunden wöchentlich, Pflichtpausen.'},
+  ],
+  'LAP-Vorbereitung': [
+    {t:'mc',f:'Aus welchen Teilen besteht die LAP (Lehrabschlussprüfung)?',o:['Nur Theorie','Theoretische Prüfung und praktische Prüfung','Nur Praktisch','Nur eine schriftliche Arbeit'],r:1,e:'Die LAP besteht aus einem theoretischen und einem praktischen Teil. Beide müssen bestanden werden.'},
+  ],
+  'Kundenkommunikation Fortgeschritten': [
+    {t:'mc',f:'Wie gehst du mit einem unzufriedenen Kunden professionell um?',o:['Ignorieren','Ruhig bleiben, aktiv zuhören, Verständnis zeigen, Lösung anbieten, nachfassen','Preis reduzieren','Zum Chef schicken'],r:1,e:'Professionelles Beschwerdemanagement: zuhören, verstehen, Verantwortung übernehmen, Lösung anbieten, Nachfassen.'},
+  ],
+  'Pflegeprodukte & Wirkstoffe': [
+    {t:'mc',f:'Was macht Keratin in Haarpflegeprodukten?',o:['Färbt das Haar','Füllt Lücken in der Haarstruktur und stärkt das Haar von innen','Macht Haare schwerer','Verändert die Farbe'],r:1,e:'Keratin in Pflegeprodukten dringt ins Haar ein, füllt beschädigte Stellen und stärkt die Haarstruktur.'},
+  ],
+  'Herrenservice': [
+    {t:'mc',f:'Was gehört zu einem vollständigen Herrenservice?',o:['Nur Haarschnitt','Haarschnitt, Nassrasur oder Konturenschnitt, Styling, ggf. Bartpflege','Nur Rasur','Nur Styling'],r:1,e:'Vollständiger Herrenservice: Haarschnitt, Konturenschnitt/Rasur, Bartpflege und Styling.'},
+  ],
+};
+
+// LAP-Fragen
+var LAP_FRAGEN = {
+  theorie: [
+    {f:'Erklären Sie den Unterschied zwischen Desinfektion und Sterilisation und nennen Sie je ein Beispiel aus dem Friseursalon.',a:'Desinfektion tötet Krankheitserreger ab (z.B. Bürsten desinfizieren). Sterilisation vernichtet ALLE Keime inkl. Sporen (z.B. für chirurgische Instrumente). Im Salon arbeiten wir meist mit Desinfektion.'},
+    {f:'Beschreiben Sie den Aufbau eines Haares und erläutern Sie die Funktion der einzelnen Schichten.',a:'Cuticula (Schuppenschicht): schützt das Haar. Cortex (Rindenschicht): enthält Melanin und bestimmt Festigkeit/Farbe. Medulla (Mark): Wärmeisolierung. Nur bei dicken Haaren vorhanden.'},
+    {f:'Was verstehen Sie unter dem Säureschutzmantel der Haut und welche Bedeutung hat er für die Friseurarbeit?',a:'Der Säureschutzmantel ist ein natürlicher Schutzfilm mit pH 4,5–5,5. Er schützt vor Bakterien. Bei der Friseurarbeit müssen wir darauf achten, ihn nicht zu zerstören — alkalische Produkte greifen ihn an.'},
+    {f:'Erklären Sie das Prinzip der Dauerwelle chemisch (Wellemittel und Fixierer).',a:'Wellemittel (Reduktionsmittel) bricht die Disulfidbrücken im Cortex auf. Das Haar nimmt die Form der Wickler an. Fixierer (Oxidationsmittel) schließt die Brücken in neuer Form — die Welle bleibt dauerhaft.'},
+    {f:'Welche Sicherheitsmaßnahmen müssen bei chemischen Behandlungen (Färben, Dauerwelle) beachtet werden?',a:'Handschuhe und Schürze tragen. Allergietest 48 Stunden vorher. Einwirkzeit genau einhalten. Produkte nicht in Augen/Mund. Gut lüften. Bei Unverträglichkeit sofort abspülen und Arzt aufsuchen.'},
+    {f:'Was sind die Aufgaben einer Friseurin/eines Friseurs laut Berufsbild?',a:'Haarpflege und -behandlung, Haarschnitt, Coloration, Umformung (Dauerwelle), Beratung, Styling, Bartpflege, Kopfhautpflege und Verkauf von Pflegeprodukten.'},
+    {f:'Erklären Sie den Farbkreis und seine Bedeutung für die Coloration.',a:'Der Farbkreis zeigt Primärfarben (Rot, Gelb, Blau) und ihre Mischfarben. Komplementärfarben (gegenüberliegend) neutralisieren sich gegenseitig: Blau neutralisiert Orange, Violett neutralisiert Gelb.'},
+  ],
+  praxis: [
+    {f:'Beschreiben Sie Schritt für Schritt wie Sie einen Damenhaarschnitt mit Stufung vorbereiten und durchführen.',a:'1. Beratungsgespräch führen. 2. Haare waschen. 3. Haare feuchtkämmen. 4. Einteilung in Partien. 5. Grundlinie bestimmen. 6. Stufen einarbeiten von unten nach oben. 7. Kontrolle und Ausgleich. 8. Styling.'},
+    {f:'Wie bereiten Sie eine Coloration vor und was müssen Sie beachten?',a:'Allergietest 48h vorher. Beratung: Ist-Zustand analysieren, Ziel besprechen. Materialien vorbereiten. Haare vorkämmen. Farbe anmischen. Auftragen: erst an wurzelfernen Partien, dann Ansatz. Einwirkzeit einhalten. Gründlich auswaschen. Nachpflege.'},
+    {f:'Erklären Sie wie Sie einen klassischen Herrenhaarschnitt (Undercut) durchführen.',a:'1. Beratung und Wunsch klären. 2. Haare waschen. 3. Seiten und Nacken mit Maschine oder Schere/Kamm kürzen. 4. Übergang gestalten. 5. Oberkopf in gewünschte Form schneiden. 6. Konturen mit Rasiermesser oder Konturenmaschine absetzen. 7. Styling.'},
+    {f:'Wie führen Sie eine Kopfhautanalyse durch und welche Behandlung empfehlen Sie bei fettiger Kopfhaut?',a:'Kopfhaut unter guter Beleuchtung sorgfältig begutachten. Bei fettiger Kopfhaut: fettregulierende Behandlung, spezielles Shampoo für fettige Kopfhaut, Massagen fördern die Durchblutung, Produkte nicht direkt auf die Kopfhaut auftragen.'},
+    {f:'Beschreiben Sie den Ablauf einer Dauerwelle von der Vorbereitung bis zum Nachbehandeln.',a:'1. Haarstrukturanalyse. 2. Allergietest. 3. Haare waschen (kein Conditioner). 4. Wickeln (Wicklergröße je nach gewünschter Welle). 5. Wellemittel auftragen, einwirken lassen. 6. Abspülen (Wellemittel). 7. Fixierer auftragen. 8. Abspülen. 9. Pflegebehandlung. 10. Styling.'},
+  ]
+};
+
+// Lernpläne
+var LERNPLAENE = {
+  '1': {
+    '2': 'Wochenplan · 1. Lehrjahr · 2 Stunden\n\nDienstag — 30 Min: Hygiene-Grundlagen wiederholen\nDonnerstag — 30 Min: Werkzeugkunde — Scheren benennen und Unterschiede erklären\nSamstag — 60 Min: Haarkunde — Aufbau des Haares auswendig lernen\n\nTipp: Schreib die wichtigsten Begriffe auf Karteikarten!',
+    '3': 'Wochenplan · 1. Lehrjahr · 3 Stunden\n\nDienstag — 45 Min: Hygiene & Desinfektion — 3 Hygieneebenen lernen\nMittwoch — 45 Min: Werkzeugkunde — Scheren und Pflege\nFreitag — 90 Min: Haarkunde — Aufbau und Haarstruktur\n\nTipp: Erkläre die Themen laut — als würdest du eine Kundin beraten!',
+    '5': 'Wochenplan · 1. Lehrjahr · 5 Stunden\n\nDienstag — 60 Min: Hygiene & Desinfektion\nMittwoch — 60 Min: Werkzeugkunde\nDonnerstag — 60 Min: Haarkunde & Haarstruktur\nFreitag — 60 Min: Hautkunde\nSamstag — 60 Min: Farbenlehre Grundlagen\n\nTipp: Täglich eine kleine Einheit ist besser als alles auf einmal!',
+    '7': 'Wochenplan · 1. Lehrjahr · 7 Stunden\n\nDienstag — 60 Min: Hygiene & Arbeitssicherheit\nMittwoch — 60 Min: Werkzeugkunde\nDonnerstag — 90 Min: Haarkunde & Haarstruktur (wichtig für LAP!)\nFreitag — 60 Min: Hautkunde\nSamstag — 90 Min: Farbenlehre & Beratungsgespräch\n\nNutze die Lunchpause für 10-Min-Wiederholungen!',
+    '10': 'Wochenplan · 1. Lehrjahr · 10 Stunden\n\nMontag — 60 Min: Hygiene & Arbeitssicherheit\nDienstag — 90 Min: Werkzeugkunde + Pflege\nMittwoch — 90 Min: Haarkunde & Haarstruktur\nDonnerstag — 90 Min: Hautkunde\nFreitag — 90 Min: Farbenlehre & Coloration\nSamstag — 60 Min: Beratungsgespräch üben (mit jemanden spielen)\n\nDu lernst intensiv — mach nach jeder Einheit eine 10-Min-Pause!',
+  },
+  '2': {
+    '2': 'Wochenplan · 2. Lehrjahr · 2 Stunden\n\nDienstag — 60 Min: Schnitt-Techniken — Stufung und Grundlinien\nFreitag — 60 Min: Colorationsgrundlagen — pH-Wert und Farbkreis\n\nTipp: Übe Schnitt-Techniken direkt am Modell im Salon!',
+    '5': 'Wochenplan · 2. Lehrjahr · 5 Stunden\n\nDienstag — 60 Min: Haarschnitt Techniken\nMittwoch — 60 Min: Colorationsgrundlagen\nDonnerstag — 60 Min: Dauerwelle Theorie\nFreitag — 60 Min: Kopfhautpflege\nSamstag — 60 Min: Kundenberatung üben\n\nTipp: Frag Mirjam bei der Arbeit nach echten Praxisbeispielen!',
+    '10': 'Wochenplan · 2. Lehrjahr · 10 Stunden\n\nMontag — 90 Min: Haarschnitt Techniken (Stufung, Graduation)\nDienstag — 90 Min: Coloration Theorie + Farbkreis\nMittwoch — 90 Min: Dauerwelle Chemie\nDonnerstag — 60 Min: Kopfhautpflege\nFreitag — 90 Min: Fachkunde Chemie (pH-Werte)\nSamstag — 60 Min: Kundenberatung + Reklamation\n\nDu bist schon im 2. Jahr — denk auch an die LAP-Vorbereitung!',
+  },
+  '3': {
+    '5': 'Wochenplan · 3. Lehrjahr · 5 Stunden — LAP-Fokus!\n\nDienstag — 75 Min: Balayage & Strähnen Technik\nDonnerstag — 75 Min: Betriebskunde & Recht\nSamstag — 90 Min: LAP-Vorbereitung — Theorie-Fragen üben\n+ 30 Min: Praxis-Ablauf eines Vollservices durchdenken\n\nDu bist im Endspurt — fokussiere dich auf LAP-relevante Themen!',
+    '10': 'Wochenplan · 3. Lehrjahr · 10 Stunden — Intensiv LAP!\n\nMontag — 90 Min: Balayage & Strähnen Technik + Theorie\nDienstag — 90 Min: Umformungen Theorie & Praxis\nMittwoch — 90 Min: LAP-Theorie: alle Prüfungsthemen\nDonnerstag — 60 Min: Betriebskunde & Recht\nFreitag — 90 Min: Kundenkommunikation & Beratung\nSamstag — 60 Min: Praxis-Simulation: Vollservice von A–Z\n\nNoch ein paar Monate bis zur LAP — du schaffst das!',
+  }
+};
+
+// Fortschritt-Tipps
+var FORTSCHRITT_TIPPS = {
+  'Hygiene & Schutzmaßnahmen': 'Tipp 1: Lerne die 3 Hygieneebenen mit einem Eselsbrücken: "R-D-S" — Reinigen, Desinfizieren, Sterilisieren.\n\nTipp 2: Übe die Einwirkzeiten — schreib sie auf einen Zettel und hänge ihn im Salon auf.\n\nTipp 3: Erkläre einem Freund den Unterschied zwischen Desinfektion und Sterilisation — wenn du es erklären kannst, hast du es verstanden!',
+  'Werkzeugkunde': 'Tipp 1: Nimm jedes Werkzeug in die Hand und sage laut seinen Namen und Verwendungszweck.\n\nTipp 2: Erstelle eine Tabelle: Werkzeug | Verwendung | Pflege — so siehst du alles auf einen Blick.\n\nTipp 3: Frag Mirjam im Salon nach Tipps zur Scherpflege — praktische Erfahrung bleibt besser im Gedächtnis!',
+  'Haarkunde & Haarstruktur': 'Tipp 1: Zeichne den Haaraufbau selbst — Cuticula, Cortex, Medulla. Das hilft beim Einprägen.\n\nTipp 2: Verbinde die Schichten mit ihren Funktionen: Cuticula = Schutz, Cortex = Farbe & Festigkeit, Medulla = Wärme.\n\nTipp 3: Schau dir Haarstruktur-Videos an — visuelle Eindrücke helfen beim Lernen!',
+  'Farbenlehre & Coloration': 'Tipp 1: Male den Farbkreis selbst — Primärfarben eintragen, dann Sekundärfarben. Komplementärfarben markieren.\n\nTipp 2: Merkregel für Neutralisation: BLAU neutralisiert ORANGE, VIOLETT neutralisiert GELB, GRÜN neutralisiert ROT.\n\nTipp 3: Beobachte im Salon genau welche Farbe Mirjam bei welchem Untergrundton wählt — frag warum!',
+  'Beratungsgespräch & Kundenkommunikation': 'Tipp 1: Übe das Beratungsgespräch mit einer Freundin — spielte Kundin und Friseurin abwechselnd.\n\nTipp 2: Merke dir die 4 Schritte: Begrüßen → Zuhören → Beraten → Zusammenfassen.\n\nTipp 3: Beobachte wie Mirjam mit Kunden spricht — welche Fragen stellt sie? Was macht sie bei schwierigen Situationen?',
+};
+
+var QUIZ_RICHTIG = 0;
+var QUIZ_GESAMT = 0;
+var QUIZ_FRAGEN_POOL = [];
+var QUIZ_IDX = 0;
+var LAP_MODUS = 'theorie';
+var LAP_IDX = {theorie:0, praxis:0};
+
+// ── NAVIGATION ───────────────────────────────────────────────────
+function zeige(seite) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('ak'); });
+  document.getElementById('p-'+seite).classList.add('ak');
+  if (seite === 'quiz') quizInit();
+  if (seite === 'fortschritt') fsInit();
+  window.scrollTo(0,0);
+}
+
+function wahlLj(btn, lj) {
+  LEHRJAHR = lj;
+  document.querySelectorAll('.btn-lj').forEach(function(b){ b.classList.remove('ak'); });
+  btn.classList.add('ak');
+}
+
+// ── QUIZ ────────────────────────────────────────────────────────
+function quizInit() {
+  var sel = document.getElementById('quiz-thema');
+  sel.innerHTML = '';
+  THEMEN[LEHRJAHR].forEach(function(t){
+    var o = document.createElement('option');
+    o.value = t; o.textContent = t;
+    sel.appendChild(o);
+  });
+  quizReset();
+}
+
+function quizReset() {
+  QUIZ_RICHTIG = 0; QUIZ_GESAMT = 0;
+  document.getElementById('quiz-score').style.display = 'none';
+  document.getElementById('quiz-bereich').innerHTML = '<button class="btn-primary" onclick="quizNeu()">Frage laden →</button>';
+}
+
+function quizNeu() {
+  var thema = document.getElementById('quiz-thema').value;
+  var pool = FRAGEN[thema] || [];
+  if (!pool.length) {
+    document.getElementById('quiz-bereich').innerHTML = '<p style="color:#7A7A70;font-size:13px">Für dieses Thema sind noch keine Fragen hinterlegt.</p><button class="btn-ghost" onclick="quizReset()" style="margin-top:10px">Anderes Thema</button>';
+    return;
+  }
+  var f = pool[Math.floor(Math.random() * pool.length)];
+  zeigeFrage(f);
+}
+
+function zeigeFrage(f) {
+  var html = '<p style="font-weight:600;color:#1C1C1A;line-height:1.5;font-size:15px;margin-bottom:14px">'+f.f+'</p>';
+  f.o.forEach(function(opt, i){
+    html += '<button class="opt-btn" id="opt-'+i+'" onclick="quizPruefe(this,'+i+','+f.r+',\''+f.e.replace(/'/g,"\\'")+'\')">'+(String.fromCharCode(65+i))+') '+opt+'</button>';
+  });
+  document.getElementById('quiz-bereich').innerHTML = html;
+}
+
+function quizPruefe(btn, gewaehlt, richtig, erklaerung) {
+  document.querySelectorAll('.opt-btn').forEach(function(b){ b.disabled = true; });
+  document.getElementById('opt-'+richtig).classList.add('ric');
+  if (gewaehlt !== richtig) { btn.classList.add('fal'); }
+  QUIZ_GESAMT++;
+  if (gewaehlt === richtig) QUIZ_RICHTIG++;
+  var kor = gewaehlt === richtig;
+  var fb = document.createElement('div');
+  fb.className = kor ? 'fb-g' : 'fb-r';
+  fb.innerHTML = '<strong style="color:'+(kor?'#2E7D5E':'#C44030')+'">'+(kor?'✓ Richtig!':'✗ Nicht ganz.')+'</strong><div class="muster" style="margin-top:8px"><div class="muster-lab">Erklärung</div>'+erklaerung+'</div>';
+  var nb = document.createElement('button');
+  nb.className = 'btn-primary';
+  nb.style.marginTop = '10px';
+  nb.textContent = 'Nächste Frage →';
+  nb.onclick = quizNeu;
+  fb.appendChild(nb);
+  document.getElementById('quiz-bereich').appendChild(fb);
+  var sc = document.getElementById('quiz-score');
+  sc.style.display = 'block';
+  sc.textContent = QUIZ_RICHTIG+' von '+QUIZ_GESAMT+' richtig — '+Math.round(QUIZ_RICHTIG/QUIZ_GESAMT*100)+'%';
+  window.scrollTo(0, document.getElementById('quiz-bereich').offsetTop - 20);
+}
+
+// ── LERNPLAN ────────────────────────────────────────────────────
+function lernplanErstellen() {
+  var std = document.getElementById('lp-stunden').value;
+  var plaene = LERNPLAENE[LEHRJAHR] || {};
+  var plan = plaene[std] || plaene['5'] || 'Für diese Kombination ist noch kein Plan hinterlegt.';
+  document.getElementById('lp-titel').textContent = LEHRJAHR+'. Lehrjahr · '+std+' Stunden / Woche';
+  document.getElementById('lp-inhalt').textContent = plan;
+  document.getElementById('lp-ergebnis').style.display = 'block';
+}
+
+// ── FORTSCHRITT ─────────────────────────────────────────────────
+function fsInit() {
+  var sel = document.getElementById('fs-thema');
+  sel.innerHTML = '<option value="">— Thema wählen —</option>';
+  var alle = [];
+  Object.values(THEMEN).forEach(function(arr){ alle = alle.concat(arr); });
+  alle.forEach(function(t){
+    var o = document.createElement('option');
+    o.value = t; o.textContent = t;
+    sel.appendChild(o);
+  });
+}
+
+function fortschrittAnalyse() {
+  var thema = document.getElementById('fs-thema').value;
+  var text = document.getElementById('fs-text').value.trim();
+  if (!thema) { alert('Bitte ein Thema wählen.'); return; }
+  var tipps = FORTSCHRITT_TIPPS[thema] || 'Tipp 1: Lies das Thema nochmal durch und schreib die wichtigsten Punkte auf.\n\nTipp 2: Erkläre das Thema laut — als würdest du es einer Kundin erklären.\n\nTipp 3: Frag Mirjam direkt im Salon nach einem Praxisbeispiel!';
+  document.getElementById('fs-tipps').textContent = tipps;
+  document.getElementById('fs-ergebnis').style.display = 'block';
+}
+
+// ── LAP ─────────────────────────────────────────────────────────
+function lapWahl(modus, btn) {
+  LAP_MODUS = modus;
+  document.querySelectorAll('.btn-toggle').forEach(function(b){ b.classList.remove('ak'); });
+  btn.classList.add('ak');
+  document.getElementById('lap-ergebnis').style.display = 'none';
+}
+
+function lapNeu() {
+  var pool = LAP_FRAGEN[LAP_MODUS];
+  var idx = LAP_IDX[LAP_MODUS];
+  var f = pool[idx % pool.length];
+  LAP_IDX[LAP_MODUS] = (idx + 1) % pool.length;
+  document.getElementById('lap-typ-label').textContent = 'LAP-Frage · '+(LAP_MODUS==='theorie'?'Theorie':'Praxis');
+  document.getElementById('lap-frage').textContent = f.f;
+  var ant = document.getElementById('lap-antwort');
+  ant.style.display = 'none';
+  document.getElementById('lap-antwort-txt').textContent = f.a;
+  ant.dataset.txt = f.a;
+  document.getElementById('lap-ergebnis').style.display = 'block';
+  window.scrollTo(0, document.getElementById('lap-ergebnis').offsetTop - 20);
+}
+
+function lapZeigAntwort() {
+  document.getElementById('lap-antwort').style.display = 'block';
+}
+</script>
+</body>
+</html>
