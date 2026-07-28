@@ -51,6 +51,7 @@ h1{font-size:26px;font-weight:600;color:#1C1C1A;margin-bottom:4px}
 
 <!-- ── HOME ── -->
 <div id="p-home" class="page ak">
+  <a href="https://mirjamwalenta-a11y.github.io/lernquiz.greathairday/lernquiz.html" style="display:inline-block;margin-bottom:12px;color:#7A7A70;font-size:13px;text-decoration:none">← Zurück zum Lernquiz</a>
   <div class="tag">greathairday · Wien</div>
   <h1>Lern-Tool ✂</h1>
   <p class="sub">Für Ronya — Lehrlings-Begleitung</p>
@@ -195,6 +196,149 @@ var THEMEN = {
 
 // Fragen-Bank pro Thema
 var FRAGEN = {
+  'Hygiene & Schutzmaßnahmen': [
+    {t:'mc',f:'Welche drei Hygieneebenen gibt es im Friseursalon?',o:['Reinigen, Desinfizieren, Sterilisieren','Waschen, Spülen, Trocknen','Putzen, Einsprühen, Abdecken','Wischen, Sprühen, Lagern'],r:0,e:'Reinigen → Desinfizieren → Sterilisieren. Im Salon wird meist bis zur Desinfektion gearbeitet.'},
+    {t:'mc',f:'Wie lange muss ein Desinfektionsmittel mindestens einwirken?',o:['Sofort abwischen','Mindestens 30 Sekunden','5 Minuten','Über Nacht'],r:1,e:'Mindestens 30 Sekunden. Sofortiges Abwischen macht die Desinfektion wirkungslos.'},
+    {t:'mc',f:'Was gehört zur persönlichen Hygiene im Salon?',o:['Nur Händewaschen','Saubere Kleidung, gepflegte Hände, kurze Nägel, tägliche Körperpflege','Nur saubere Kleidung','Parfüm verwenden'],r:1,e:'Persönliche Hygiene: saubere Arbeitskleidung, gepflegte Hände, kurze Fingernägel und tägliche Körperpflege.'},
+    {t:'mc',f:'Was ist der Unterschied zwischen Desinfektion und Sterilisation?',o:['Kein Unterschied','Desinfektion tötet Krankheitserreger, Sterilisation tötet ALLE Keime','Sterilisation ist schwächer','Desinfektion ist nur für Metall'],r:1,e:'Desinfektion reduziert Krankheitserreger. Sterilisation vernichtet alle Keime inkl. Sporen.'},
+    {t:'mc',f:'Was gehört zur öffentlichen Hygiene?',o:['Nur Händewaschen','Trinkwasserkontrolle, Abfallentsorgung, Schädlingsbekämpfung','Nur Desinfektion','Salon-Reinigung'],r:1,e:'Öffentliche Hygiene schützt die Bevölkerung: Trinkwasser, Abfall, Schädlinge.'},
+    {t:'mc',f:'Welche Mittel werden zur Desinfektion im Salon verwendet?',o:['Nur Wasser','Alkohol, Aldehyd oder quaternäre Ammoniumverbindungen','Seife und Wasser','Nur Hitze'],r:1,e:'Desinfektionsmittel enthalten Alkohol, Aldehyde oder quaternäre Ammoniumverbindungen — je nach Anwendung.'},
+    {t:'mc',f:'Wie oft müssen Kämme und Bürsten desinfiziert werden?',o:['Einmal pro Woche','Nach jedem Kunden','Einmal täglich','Nur wenn sichtbar verschmutzt'],r:1,e:'Nach jedem Kunden — so verhindert man die Übertragung von Bakterien, Pilzen und Parasiten.'},
+    {t:'mc',f:'Was versteht man unter Kontakthygiene?',o:['Händewaschen','Vermeidung direkter Übertragung von Erregern durch Berührung','Desinfektion von Geräten','Lüften des Salons'],r:1,e:'Kontakthygiene verhindert die direkte Übertragung von Krankheitserregern durch Berührung — z.B. Handschuhe tragen.'},
+  ],
+  'Unfallverhütung & Arbeitssicherheit': [
+    {t:'mc',f:'Was tust du sofort wenn du dich beim Schneiden schneidest?',o:['Weiterarbeiten','Wunde reinigen, Pflaster, Einmalhandschuh','Nur Pflaster','Kunden nach Hause schicken'],r:1,e:'Wunde reinigen, Pflaster, Einmalhandschuh — so schützt du dich und den Kunden.'},
+    {t:'mc',f:'Welchen Schutz trägst du beim Auftragen von Haarfarbe?',o:['Keinen','Einmalhandschuhe und Schürze','Nur Schürze','Nur Handschuhe wenn gewünscht'],r:1,e:'Einmalhandschuhe schützen die Haut vor Chemikalien. Schürze schützt die Kleidung.'},
+    {t:'mc',f:'Was ist bei Schnittverletzungen mit dem Kunden zu tun?',o:['Nichts, heilt von selbst','Wunde versorgen, dokumentieren, ggf. Arzt aufsuchen','Nur ein Pflaster','Ignorieren'],r:1,e:'Wunde versorgen, im Verbandbuch dokumentieren und bei Bedarf Arzt aufsuchen.'},
+    {t:'mc',f:'Wo wird ein Arbeitsunfall dokumentiert?',o:['Gar nicht','Im Verbandbuch','Im Kassenbuch','In der Kundenkartei'],r:1,e:'Jeder Unfall wird im Verbandbuch eingetragen — Datum, Art der Verletzung, Erstmaßnahmen.'},
+    {t:'mc',f:'Was tust du wenn Haarfarbe in die Augen gelangt?',o:['Abwarten','Sofort mit viel Wasser spülen und Arzt aufsuchen','Eincremen','Sonnenbrille aufsetzen'],r:1,e:'Sofort und gründlich mit Wasser spülen — mindestens 10 Minuten. Danach Arzt aufsuchen.'},
+    {t:'mc',f:'Welche Schutzausrüstung ist beim Blondieren Pflicht?',o:['Keine','Handschuhe, Schürze, ggf. Mundschutz bei schlechter Lüftung','Nur Handschuhe','Nur Schürze'],r:1,e:'Handschuhe und Schürze sind Pflicht. Bei schlechter Belüftung auch Mundschutz — Bleichpulver reizt die Atemwege.'},
+    {t:'mc',f:'Was bedeutet MSDS/Sicherheitsdatenblatt?',o:['Mitarbeiter-Sozialversicherung','Informationsblatt über Gefahren, Zusammensetzung und Handhabung eines Produkts','Monatliche Salondienstanweisung','Mindeststandard der Schönheitspflege'],r:1,e:'Sicherheitsdatenblätter informieren über Gefahren, Inhaltsstoffe und sichere Handhabung von Produkten.'},
+  ],
+  'Werkzeugkunde': [
+    {t:'mc',f:'Was ist der Unterschied zwischen Modellierschere und Effilierer?',o:['Kein Unterschied','Modellierschere glatt, Effilierer hat Zähne und dünnt aus','Effilierer ist größer','Nur für Damen'],r:1,e:'Modellierschere: glatte Klingen. Effilierer: gezahnte Klinge — entfernt Volumen ohne Länge zu nehmen.'},
+    {t:'mc',f:'Wie pflegst du eine Haarschere richtig?',o:['Gar nicht','Regelmäßig ölen, reinigen, fachgerecht schleifen lassen','Nur waschen','In Wasser einlegen'],r:1,e:'Scheren regelmäßig ölen, reinigen und beim Fachmann schleifen lassen — so bleiben sie scharf und langlebig.'},
+    {t:'mc',f:'Wofür verwendet man ein Nassrasiermesser?',o:['Haare schneiden','Konturenschnitt und Rasur','Haare färben','Dauerwelle wickeln'],r:1,e:'Das Nassrasiermesser wird für präzise Konturen und Rasur verwendet — typisch im Herrenbereich.'},
+    {t:'mc',f:'Was ist eine Rundbürste?',o:['Eine Bürste zum Entknoten','Eine Bürste zum Föhnen mit Volumen und Wellen','Eine Reinigungsbürste','Eine Massagebürste'],r:1,e:'Rundbürsten werden beim Föhnen verwendet — sie erzeugen Volumen, Wellen und glätten das Haar.'},
+    {t:'mc',f:'Welches Werkzeug verwendet man für einen Undercut?',o:['Nur Schere','Haarschneidemaschine und Schere','Nur Kamm','Rasierer'],r:1,e:'Undercut: Seiten mit der Maschine kürzen, Übergänge mit Schere/Kamm gestalten.'},
+    {t:'mc',f:'Was ist ein Stielkamm?',o:['Ein Kamm ohne Stiel','Ein Kamm mit Stiel zum Scheiteln und Einteilen der Haare','Ein Massagekamm','Ein Dauerwellkamm'],r:1,e:'Der Stielkamm hat einen langen Stiel — ideal zum Scheiteln, Einteilen und Kräuseln.'},
+    {t:'mc',f:'Wie erkennt man eine stumpfe Schere?',o:['Sie ist schwerer','Das Haar wird gequetscht statt sauber geschnitten','Sie ist kälter','Sie glänzt nicht mehr'],r:1,e:'Eine stumpfe Schere quetscht das Haar statt es sauber zu schneiden — das Haar splittert oder biegt sich.'},
+  ],
+  'Haarkunde & Haarstruktur': [
+    {t:'mc',f:'Aus welchen drei Schichten besteht ein Haar?',o:['Wurzel, Schaft, Spitze','Cuticula, Cortex, Medulla','Keratin, Melanin, Lipide','Schuppenschicht, Farbschicht, Kern'],r:1,e:'Cuticula (Schuppenschicht) → Cortex (Melanin) → Medulla (Markkern).'},
+    {t:'mc',f:'Aus welchem Stoff bestehen Haare hauptsächlich?',o:['Kollagen','Melanin','Keratin','Elastin'],r:2,e:'Haare bestehen zu ca. 90% aus Keratin — einem Strukturprotein.'},
+    {t:'mc',f:'Welche vier Haarstrukturen gibt es?',o:['Glatt, wellig, lockig, kraus','Fein, normal, grob, dick','Kurz, mittel, lang, sehr lang','Trocken, normal, fettig, gemischt'],r:0,e:'Die vier Haarstrukturen: glatt, wellig, lockig, kraus — bestimmt durch den Haarfollikel.'},
+    {t:'mc',f:'Was bedeutet es wenn Haar porös ist?',o:['Haar ist sehr stark','Die Schuppenschicht ist aufgeraut, Feuchtigkeit entweicht leicht','Haar ist sehr glatt','Haar hat viel Melanin'],r:1,e:'Poröses Haar hat eine beschädigte Cuticula — Feuchtigkeit entweicht schnell, das Haar ist spröde.'},
+    {t:'mc',f:'Was ist Melanin im Haar?',o:['Ein Protein','Das natürliche Farbpigment des Haares','Ein Fett','Ein Mineral'],r:1,e:'Melanin ist das natürliche Pigment im Cortex — es bestimmt die Haarfarbe. Eumelanin = dunkel, Phäomelanin = rot/gelb.'},
+    {t:'mc',f:'Was passiert beim Ergrauen des Haares?',o:['Das Haar wird dicker','Die Melanozyten produzieren weniger oder kein Melanin mehr','Das Haar wird trockener','Die Cuticula verschwindet'],r:1,e:'Mit dem Alter produzieren die Melanozyten (Pigmentzellen) immer weniger Melanin — das Haar wird grau/weiß.'},
+    {t:'mc',f:'Was ist der Haarfollikel?',o:['Die Haarspitze','Die Haarwurzel-Tasche in der Haut aus der das Haar wächst','Das Haar selbst','Die Kopfhaut'],r:1,e:'Der Haarfollikel ist die Tasche in der Haut — hier wächst das Haar. Er bestimmt auch die Haarstruktur.'},
+    {t:'mc',f:'Wie viele Haare verliert ein Mensch durchschnittlich täglich?',o:['10–20','50–100','200–300','500'],r:1,e:'50–100 Haare täglich ist normal. Mehr kann auf Haarausfall hindeuten.'},
+  ],
+  'Hautkunde': [
+    {t:'mc',f:'Aus welchen Schichten besteht die Haut?',o:['Cuticula, Cortex, Medulla','Oberhaut, Lederhaut, Unterhaut','Hornschicht, Keimschicht, Unterhaut','Schutz-, Fett-, Muskelschicht'],r:1,e:'Oberhaut (Epidermis), Lederhaut (Dermis), Unterhaut (Subcutis).'},
+    {t:'mc',f:'Was ist der Säureschutzmantel der Haut?',o:['Eine Creme','Ein natürlicher Schutzfilm mit pH 4,5–5,5 der Krankheitserreger abwehrt','Eine Behandlung','Ein Medikament'],r:1,e:'Natürlicher Schutzfilm mit leicht saurem pH — schützt vor Bakterien und Pilzen.'},
+    {t:'mc',f:'Welche Funktion hat die Talgdrüse?',o:['Temperatur regulieren','Talg produzieren der Haut und Haare schützt','Hautzellen bilden','Schadstoffe filtern'],r:1,e:'Talgdrüsen produzieren Talg — schützt vor dem Austrocknen.'},
+    {t:'mc',f:'Was ist Seborrhoe?',o:['Trockene Kopfhaut','Übermäßige Talgproduktion','Haarausfall','Eine Pilzerkrankung'],r:1,e:'Seborrhoe = übermäßige Talgproduktion — Kopfhaut und Haare wirken fettig.'},
+    {t:'mc',f:'Was sind Schweißdrüsen und wozu dienen sie?',o:['Drüsen die Talg produzieren','Drüsen die Schweiß absondern zur Temperaturregulierung und Ausscheidung','Drüsen die Melanin bilden','Drüsen für die Haarproduktion'],r:1,e:'Schweißdrüsen regeln die Körpertemperatur und scheiden Stoffwechselprodukte aus.'},
+    {t:'mc',f:'Was versteht man unter Akne?',o:['Trockene Haut','Entzündliche Erkrankung der Talgdrüsen mit Mitessern und Pickeln','Eine Pilzerkrankung','Übermäßige Behaarung'],r:1,e:'Akne entsteht durch verstopfte Talgdrüsen und Bakterien — führt zu Mitessern, Pickeln und Entzündungen.'},
+    {t:'mc',f:'Welche Schicht der Haut erneuert sich ständig?',o:['Lederhaut','Unterhaut','Oberhaut (Epidermis)','Alle gleich'],r:2,e:'Die Oberhaut erneuert sich alle 28 Tage komplett — alte Hornzellen werden abgestoßen.'},
+  ],
+  'Farbenlehre & Coloration': [
+    {t:'mc',f:'Welche drei Grundfarben gibt es?',o:['Rot, Grün, Blau','Rot, Gelb, Blau','Orange, Violett, Grün','Schwarz, Weiß, Grau'],r:1,e:'Rot, Gelb und Blau sind die drei Grundfarben — aus ihnen entstehen alle anderen Farben.'},
+    {t:'mc',f:'Was neutralisiert einen orangefarbenen Untergrundton?',o:['Rot','Gelb','Blau','Grün'],r:2,e:'Blau neutralisiert Orange — Komplementärfarben heben sich gegenseitig auf.'},
+    {t:'mc',f:'Was passiert mit den Haarpigmenten beim Blondieren?',o:['Sie werden dunkler','Das Melanin wird durch Oxidation aufgehellt','Sie verschwinden sofort','Sie werden blau'],r:1,e:'Wasserstoffperoxid oxidiert das Melanin — die Pigmente werden schrittweise aufgehellt.'},
+    {t:'mc',f:'Was ist der pH-Wert von gesundem Haar?',o:['1–2','4,5–5,5','7–8','10–12'],r:1,e:'Gesundes Haar hat pH 4,5–5,5 — leicht sauer, wie der Säureschutzmantel der Haut.'},
+    {t:'mc',f:'Was neutralisiert einen gelben Untergrundton?',o:['Blau','Orange','Violett/Lila','Grün'],r:2,e:'Violett neutralisiert Gelb — daher werden Silber-Shampoos (lila Pigmente) gegen Gelbstich verwendet.'},
+    {t:'mc',f:'Was sind Sekundärfarben?',o:['Rot, Gelb, Blau','Orange, Grün, Violett — entstehen durch Mischen je zweier Grundfarben','Schwarz und Weiß','Alle hellen Farben'],r:1,e:'Sekundärfarben: Rot+Gelb=Orange, Gelb+Blau=Grün, Rot+Blau=Violett.'},
+    {t:'mc',f:'Welche Untergrundtöne entstehen beim Aufhellen dunkler Haare?',o:['Sofort Weiß','Rot → Orange → Gelb → Hellgelb (von dunkel nach hell)','Sofort Blond','Grün dann Gelb'],r:1,e:'Beim Aufhellen durchläuft dunkles Haar verschiedene Untergrundtöne: Rot → Orange → Gelb → Hellgelb.'},
+    {t:'mc',f:'Was ist eine Tönung?',o:['Eine dauerhafte Farbe','Eine semipermanente Farbe die sich nach 4–8 Wäschen auswäscht','Eine Blondierung','Eine Strähnenbehandlung'],r:1,e:'Tönungen lagern Farbpigmente außen an — kein Aufhellen möglich, wäscht sich schrittweise aus.'},
+  ],
+  'Beratungsgespräch & Kundenkommunikation': [
+    {t:'mc',f:'Was ist der erste Schritt bei einem Neukunden-Beratungsgespräch?',o:['Sofort mit dem Schnitt beginnen','Freundlich begrüßen und nach Wunsch, Vorbehandlungen und Pflegegewohnheiten fragen','Preis nennen','Termin kürzen'],r:1,e:'Freundlich begrüßen, dann aktiv zuhören: Wunsch, Vorbehandlungen und Pflegegewohnheiten erfragen.'},
+    {t:'mc',f:'Warum ist aktives Zuhören im Kundengespräch wichtig?',o:['Ist nicht wichtig','Verhindert Missverständnisse, schafft Vertrauen und ermöglicht individuellen Service','Spart Zeit','Wirkt professioneller'],r:1,e:'Aktives Zuhören: Nachfragen, zusammenfassen, Verständnis zeigen — so entstehen keine Fehler.'},
+    {t:'mc',f:'Eine Kundin beschwert sich laut. Was ist der erste Schritt?',o:['Zurückdiskutieren','Ruhig bleiben, zuhören, dann gemeinsam Lösung suchen','Chef holen','Alles umsonst anbieten'],r:1,e:'Ruhig bleiben und zuhören — erst verstehen, dann gemeinsam lösen.'},
+    {t:'mc',f:'Warum ist Körpersprache im Kundengespräch wichtig?',o:['Ist unwichtig','Vermittelt Interesse, Freundlichkeit und Sicherheit — auch ohne Worte','Nur bei Problemen','Nur bei Neukunden'],r:1,e:'Körpersprache macht ca. 70% der Kommunikation aus — Blickkontakt und offene Haltung schaffen Vertrauen.'},
+    {t:'mc',f:'Was bedeutet "aktives Zuhören"?',o:['Einfach zuhören','Aufmerksam zuhören, nachfragen, das Gesagte zusammenfassen und Verständnis zeigen','Notizen machen','Nicken'],r:1,e:'Aktives Zuhören: zuhören + nachfragen + zusammenfassen + Verständnis zeigen — zeigt echtes Interesse.'},
+    {t:'mc',f:'Was ist eine offene Frage?',o:['Eine Frage die man mit Ja/Nein beantwortet','Eine Frage die ausführliche Antworten erfordert (Wie, Was, Warum, Womit)','Eine unhöfliche Frage','Eine Frage über Öffnungszeiten'],r:1,e:'Offene Fragen beginnen mit W-Wörtern (Wie, Was, Warum) — sie fördern Gespräch und liefern mehr Information.'},
+    {t:'mc',f:'Was ist eine geschlossene Frage?',o:['Eine unhöfliche Frage','Eine Frage die mit Ja oder Nein beantwortet werden kann','Eine lange Frage','Eine Frage über Preise'],r:1,e:'Geschlossene Fragen = Ja/Nein-Antworten. Nützlich zur Bestätigung: "Möchten Sie es kürzer?"'},
+    {t:'mc',f:'Warum ist ein Allergietest vor der Coloration wichtig?',o:['Ist nicht nötig','Um allergische Reaktionen auf Haarfarbe zu verhindern — 48 Stunden vorher','Um die Haarfarbe zu testen','Nur bei Neukunden nötig'],r:1,e:'Allergietest 48h vor der Behandlung — Haarfarben können Kontaktallergien auslösen. Pflicht vor jeder Coloration!'},
+  ],
+  'Haarschnitt Techniken': [
+    {t:'mc',f:'Was ist der Unterschied zwischen stumpfem und gestuftem Schnitt?',o:['Kein Unterschied','Stumpf = gleiche Länge, gestuft = verschiedene Längen für Bewegung','Gestuft ist kürzer','Stumpf ist moderner'],r:1,e:'Stumpf: alle Haare gleich lang — voluminöser. Gestuft: verschiedene Längen — gibt Bewegung.'},
+    {t:'mc',f:'Was bedeutet "über Kamm schneiden"?',o:['Über dem Kamm hinaus schneiden','Haare mit Kamm hochheben und darüber schneiden','Kamm als Lineal benutzen','Nur für Männer'],r:1,e:'Haare mit Kamm anheben und die überstehenden Spitzen schneiden — typisch für kurze Herrenschnitte.'},
+    {t:'mc',f:'Was ist Graduation (Graduation Cut)?',o:['Ein sehr kurzer Schnitt','Ein Schnitt bei dem das Haar von innen nach außen länger wird — für Volumen und Form','Ein Schnitt nur für Männer','Ein Schnitt ohne Stufen'],r:1,e:'Graduation: Haare werden von innen nach außen länger — erzeugt eine abgerundete Form mit Volumen.'},
+    {t:'mc',f:'Was ist der Unterschied zwischen Nassschnitt und Trockenschnitt?',o:['Kein Unterschied','Nassschnitt für präzise Linien, Trockenschnitt zeigt die natürliche Bewegung des Haares','Nassschnitt ist schneller','Trockenschnitt ist für Männer'],r:1,e:'Nassschnitt: präzise, kontrolliert. Trockenschnitt: zeigt natürliche Bewegung — gut für lockiges Haar.'},
+    {t:'mc',f:'Was ist Pointcut (Spitzenschnitt)?',o:['Ein stumpfer Schnitt','Die Schere wird schräg/in die Spitzen gestellt — für weichere Übergänge','Ein Schnitt nur an den Spitzen','Ein Schnitt für Kinder'],r:1,e:'Pointcut: Schere schräg in die Haare stechen — gibt weichere, natürlichere Übergänge statt harter Linien.'},
+  ],
+  'Colorationsgrundlagen': [
+    {t:'mc',f:'Was ist der Unterschied zwischen Tönung und Dauerhaftfarbe?',o:['Kein Unterschied','Tönung hält 4–8 Wäschen, Dauerhaftfarbe verändert das Haar dauerhaft','Tönung ist heller','Dauerhaftfarbe ist natürlich'],r:1,e:'Tönung: lagert Farbe außen an, wäscht sich aus. Dauerhaftfarbe: dringt ins Haar ein, hält dauerhaft.'},
+    {t:'mc',f:'Wofür wird Wasserstoffperoxid bei der Coloration verwendet?',o:['Für den Duft','Zum Aufhellen des Naturpigments und Entwickeln der Haarfarbe','Für die Pflege','Gegen Schuppen'],r:1,e:'H₂O₂ öffnet die Cuticula, hellt Naturpigment auf und entwickelt die Farbmoleküle.'},
+    {t:'mc',f:'Was bedeutet "Volumen" bei Wasserstoffperoxid (z.B. 6%, 9%, 12%)?',o:['Den Preis','Die Stärke des Aufhellens — höheres Volumen = stärkere Aufhellung','Den Geruch','Die Haltbarkeit'],r:1,e:'Höheres Volumen = stärkere Aufhellung: 3% kaum, 6% 1 Stufe, 9% 2 Stufen, 12% 3 Stufen.'},
+    {t:'mc',f:'Was ist ein Allergie-Test und wann wird er durchgeführt?',o:['Ein Haartest nach der Färbung','Ein Hauttest 48 Stunden vor der Coloration um Allergien auszuschließen','Ein Test während der Behandlung','Nur bei Neukunden'],r:1,e:'48h vor jeder Coloration: wenig Farbe hinter dem Ohr oder Innenseite Ellbogen auftragen. Bei Reaktion: nicht färben!'},
+    {t:'mc',f:'Was ist der Unterschied zwischen oxidativer und direktziehender Farbe?',o:['Kein Unterschied','Oxidativ verändert das Haar dauerhaft mit H₂O₂, direktziehend lagert Pigmente außen an','Oxidativ ist natürlicher','Direktziehend ist teurer'],r:1,e:'Oxidativ: mit H₂O₂, dauerhaft, kann aufhellen. Direktziehend: ohne H₂O₂, lagert außen an, wäscht sich aus.'},
+  ],
+  'Dauerwelle & Umformung': [
+    {t:'mc',f:'Was macht das Wellemittel bei einer Dauerwelle?',o:['Färbt das Haar','Bricht die Disulfidbrücken auf damit das Haar die Form annimmt','Klebt Haare zusammen','Macht Haar fester'],r:1,e:'Das Wellemittel löst die Schwefelbrücken im Cortex — das Haar nimmt die Form der Wickler an.'},
+    {t:'mc',f:'Was macht der Fixierer bei der Dauerwelle?',o:['Löst die Form wieder','Schließt die Disulfidbrücken in neuer Form','Fügt Farbe hinzu','Trocknet das Haar'],r:1,e:'Der Fixierer schließt die Schwefelbrücken wieder — jetzt in der neuen gewellten Form.'},
+    {t:'mc',f:'Was ist der Unterschied zwischen saurer und alkalischer Dauerwelle?',o:['Kein Unterschied','Saure DW schonender für sensitives Haar, alkalische stärker für normales Haar','Alkalisch ist immer besser','Sauer ist für Männer'],r:1,e:'Saure DW: schonend, für sensitives/gefärbtes Haar. Alkalische DW: stärker, für gesundes/resistentes Haar.'},
+    {t:'mc',f:'Wie beeinflusst der Wicklerdurchmesser das Ergebnis?',o:['Gar nicht','Kleiner Wickler = engere Welle, großer Wickler = lockerere Welle','Größer = mehr Wellen','Kleiner = weniger Wellen'],r:1,e:'Kleiner Wickler = enge Locken. Großer Wickler = lockere Wellen. Wicklergröße bestimmt die Wellenstruktur.'},
+    {t:'mc',f:'Warum darf Haar vor der Dauerwelle nicht mit Conditioner behandelt werden?',o:['Ist egal','Conditioner legt sich als Film ums Haar und verhindert das Eindringen des Wellemittels','Conditioner verfärbt das Haar','Conditioner macht die Welle zu stark'],r:1,e:'Conditioner versiegelt die Cuticula — das Wellemittel kann nicht eindringen und die Welle hält nicht.'},
+  ],
+  'Kopfhautpflege': [
+    {t:'mc',f:'Was ist Seborrhoe?',o:['Trockene Kopfhaut','Übermäßige Talgproduktion der Kopfhaut','Haarausfall','Eine Pilzerkrankung'],r:1,e:'Seborrhoe = übermäßige Talgproduktion — Kopfhaut und Haare wirken fettig.'},
+    {t:'mc',f:'Was verursacht Schuppen?',o:['Zu häufiges Waschen','Zu schnelle Zellerneuerung der Kopfhaut, oft mit Pilz (Malassezia) verbunden','Zu seltenes Waschen','Falsches Shampoo'],r:1,e:'Schuppen entstehen durch zu schnelle Zellteilung der Kopfhaut — oft mit dem Pilz Malassezia verbunden.'},
+    {t:'mc',f:'Wie behandelt man eine trockene, empfindliche Kopfhaut?',o:['Mit fettigem Shampoo täglich','Mit mildem Shampoo, feuchtigkeitsspendenden Produkten, sanfte Massage','Mit heißem Wasser','Mit starkem Peeling'],r:1,e:'Trockene Kopfhaut: mildes Shampoo, Feuchtigkeit, sanfte Massage zur Durchblutungsförderung, keine Hitze.'},
+    {t:'mc',f:'Was ist diffuser Haarausfall?',o:['Haarausfall an einer Stelle','Gleichmäßiger Haarausfall über die gesamte Kopfhaut','Kein Haarausfall','Haarausfall nur am Scheitel'],r:1,e:'Diffuser Haarausfall: gleichmäßig über die ganze Kopfhaut — oft durch Stress, Mangelernährung oder Hormone.'},
+  ],
+  'Fachkunde Chemie': [
+    {t:'mc',f:'Was bedeutet pH-Wert?',o:['Protein-Haushalt','Maß für den Säure- oder Basengehalt einer Lösung (Skala 0–14)','Haardicke','Feuchtigkeit'],r:1,e:'pH misst ob eine Lösung sauer (0–6), neutral (7) oder basisch (8–14) ist. Haar: pH 4,5–5,5.'},
+    {t:'mc',f:'Was passiert wenn ein Produkt mit hohem pH-Wert auf das Haar aufgetragen wird?',o:['Nichts','Die Cuticula öffnet sich — Haar wird aufgequollen und empfindlicher','Das Haar wird stärker','Die Farbe hält besser'],r:1,e:'Hoher pH (alkalisch) öffnet die Cuticula — das Haar quillt auf, wird empfindlicher und verliert Feuchtigkeit.'},
+    {t:'mc',f:'Was ist Oxidation?',o:['Eine Säure','Eine chemische Reaktion mit Sauerstoff — z.B. Aufhellen durch Wasserstoffperoxid','Ein Reinigungsmittel','Eine Pflegebehandlung'],r:1,e:'Oxidation = Reaktion mit Sauerstoff. Bei der Coloration oxidiert H₂O₂ das Melanin und entwickelt die Farbe.'},
+    {t:'mc',f:'Was sind Disulfidbrücken?',o:['Verbindungen zwischen Haaren','Schwefelbrücken im Cortex die die Haarstruktur und Form bestimmen','Brücken zwischen Kopfhaut und Haar','Lipidverbindungen'],r:1,e:'Disulfidbrücken = Schwefelbrücken im Cortex. Sie bestimmen die Haarform. Dauerwelle löst und fixiert sie neu.'},
+  ],
+  'Kundenberatung': [
+    {t:'mc',f:'Was ist eine Kontraindikation bei der Coloration?',o:['Graue Haare','Allergie gegen Farbstoffe, stark beschädigtes Haar oder offene Kopfhautwunden','Kurze Haare','Dunkle Haare'],r:1,e:'Kontraindikationen: bekannte Allergie, stark beschädigtes Haar, offene Wunden, Schwangerschaft.'},
+    {t:'mc',f:'Was bedeutet Haaranalyse?',o:['Das Haar färben','Beurteilung von Haarstruktur, Zustand, Porosität und Kopfhaut vor der Behandlung','Das Haar waschen','Das Haar stylen'],r:1,e:'Haaranalyse: vor jeder Behandlung Struktur, Zustand, Porosität und Kopfhaut beurteilen — verhindert Schäden.'},
+    {t:'mc',f:'Welche Informationen gehören in eine Kundenkartei?',o:['Nur der Name','Name, Kontakt, Haartyp, Behandlungen, Produkte, Allergien, Besonderheiten','Nur die Telefonnummer','Nur die Adresse'],r:1,e:'Kundenkartei: Name, Kontakt, Haartyp, bisherige Behandlungen, verwendete Produkte, Allergien und Besonderheiten.'},
+  ],
+  'Salon-Organisation': [
+    {t:'mc',f:'Was gehört zu einem professionellen Terminmanagement?',o:['Termine nur telefonisch','Pünktlichkeit, realistische Zeitplanung, Erinnerungen, Pufferzeiten','Keine Planung nötig','Nur Online-Buchung'],r:1,e:'Gutes Terminmanagement: realistische Zeitplanung, Pufferzeiten, Erinnerungen und Pünktlichkeit.'},
+    {t:'mc',f:'Was ist eine Kasse und was muss dokumentiert werden?',o:['Nur ein Aufbewahrungsort','Alle Einnahmen und Ausgaben müssen täglich dokumentiert werden','Nur die Einnahmen','Nur bei großen Beträgen'],r:1,e:'Kassenführung: alle Einnahmen und Ausgaben täglich erfassen, Kassenbon ausstellen, Tagesabschluss machen.'},
+    {t:'mc',f:'Was ist Warenwirtschaft im Salon?',o:['Das Verkaufen von Produkten','Verwaltung von Lagerbeständen, Bestellung und Kontrolle der Salon-Produkte','Nur das Bestellen','Nur das Lagern'],r:1,e:'Warenwirtschaft: Lagerbestand kontrollieren, rechtzeitig bestellen, Mindestbestand einhalten, Ablaufdaten prüfen.'},
+  ],
+  'Balayage & Strähnen': [
+    {t:'mc',f:'Was ist der Unterschied zwischen Balayage und klassischen Strähnen?',o:['Kein Unterschied','Balayage = manuell aufgemalt für natürlichen Effekt, Strähnen = mit Folie für gleichmäßigeres Ergebnis','Balayage ist dunkler','Strähnen sind moderner'],r:1,e:'Balayage: frei Hand aufgemalt — natürlicher Sonnenlicht-Effekt. Folientechnik: gleichmäßiger, kontrastreicher.'},
+    {t:'mc',f:'Was ist Babylights?',o:['Eine Kinderfrisur','Sehr feine, helle Strähnen die natürliches Kinderhaar imitieren','Eine dunkle Technik','Eine Dauerwelle für Babys'],r:1,e:'Babylights: extrem feine Strähnen — imitieren das natürliche helle Haar von Kindern. Sehr dezenter Effekt.'},
+    {t:'mc',f:'Was ist ein Root Smudge?',o:['Ein Fleck an der Wurzel','Technik zum Verschmelzen des Ansatzes mit den Strähnen für natürlicheren Übergang','Eine Fehler-Korrektur','Ein Produkt'],r:1,e:'Root Smudge: Ansatz und Strähnen werden sanft ineinander verwischt — für einen natürlicheren, softeren Übergang.'},
+  ],
+  'Umformungen Fortgeschritten': [
+    {t:'mc',f:'Was ist der Unterschied zwischen saurer und alkalischer Dauerwelle?',o:['Kein Unterschied','Saure DW schonender (pH 6–7) für sensitives Haar, alkalische stärker (pH 8–9) für normales Haar','Alkalisch ist immer besser','Sauer ist für Männer'],r:1,e:'Saure DW: schonend, für sensitives/gefärbtes Haar. Alkalische DW: stärker, für gesundes/resistentes Haar.'},
+    {t:'mc',f:'Was ist eine Keratinbehandlung?',o:['Eine Dauerwelle','Eine Glättungsbehandlung die Keratin ins Haar einschleust für glattes, geschmeidiges Haar','Eine Färbetechnik','Eine Kopfhautbehandlung'],r:1,e:'Keratinbehandlung: Keratin dringt ins Haar ein, füllt Schäden, macht es glatt und pflegeleicht — hält 3–6 Monate.'},
+  ],
+  'Betriebskunde & Recht': [
+    {t:'mc',f:'Was regelt das Arbeitszeitgesetz für Lehrlinge?',o:['Keine Regeln','Max. 8 Std./Tag, 40 Std./Woche, Ruhepausen und Wochenruhe','Unbegrenzte Arbeitszeit','Nur 4 Stunden täglich'],r:1,e:'Das Arbeitszeitgesetz schützt Lehrlinge: max. 8h täglich, 40h wöchentlich, Pflichtpausen.'},
+    {t:'mc',f:'Was ist ein Lehrvertrag?',o:['Ein Arbeitsvertrag','Ein schriftlicher Vertrag zwischen Lehrling und Ausbildungsbetrieb der Rechte und Pflichten regelt','Ein Schulvertrag','Ein Kaufvertrag'],r:1,e:'Lehrvertrag: regelt Ausbildungsdauer, Lehrlingsentschädigung, Rechte und Pflichten beider Seiten.'},
+    {t:'mc',f:'Was ist die Berufsschule und wie oft besucht man sie?',o:['Eine Zusatzausbildung','Pflichtschule für Lehrlinge — in Österreich meist 1–2 Tage pro Woche oder in Blöcken','Eine freiwillige Schule','Nur am Wochenende'],r:1,e:'Berufsschule ist Pflicht für alle Lehrlinge — vermittelt fachliche und allgemeinbildende Inhalte.'},
+  ],
+  'LAP-Vorbereitung': [
+    {t:'mc',f:'Aus welchen Teilen besteht die LAP?',o:['Nur Theorie','Theoretische Prüfung und praktische Prüfung','Nur Praktisch','Nur eine schriftliche Arbeit'],r:1,e:'Die LAP besteht aus einem theoretischen und einem praktischen Teil. Beide müssen bestanden werden.'},
+    {t:'mc',f:'Was wird in der theoretischen LAP geprüft?',o:['Nur Mathematik','Fachkunde, Hygiene, Werkzeugkunde, Haarstruktur, Betriebskunde','Nur Styling','Nur Kundenkommunikation'],r:1,e:'Theorie-LAP: Fachkunde (Haare, Haut, Chemie), Hygiene, Werkzeugkunde, Betriebskunde, Kundenkommunikation.'},
+    {t:'mc',f:'Was wird in der praktischen LAP geprüft?',o:['Nur Haarschnitt','Haarschnitt, Coloration oder Strähnen, Dauerwelle oder Styling — je nach Prüfungsaufgabe','Nur Styling','Nur Waschen'],r:1,e:'Praxis-LAP: Haarschnitt, Coloration/Strähnen, evtl. Dauerwelle und Styling — typisch 3–4 Stunden.'},
+  ],
+  'Kundenkommunikation Fortgeschritten': [
+    {t:'mc',f:'Wie gehst du mit einem unzufriedenen Kunden professionell um?',o:['Ignorieren','Ruhig bleiben, aktiv zuhören, Verständnis zeigen, Lösung anbieten, nachfassen','Preis reduzieren','Zum Chef schicken'],r:1,e:'Professionell: zuhören, verstehen, Verantwortung übernehmen, Lösung anbieten, Ergebnis nachfassen.'},
+    {t:'mc',f:'Was ist Empathie im Kundengespräch?',o:['Mitleid haben','Die Fähigkeit sich in den Kunden hineinzuversetzen und seine Gefühle zu verstehen','Immer zustimmen','Sehr viel reden'],r:1,e:'Empathie: aktiv versuchen den Kunden zu verstehen — seine Wünsche und Sorgen ernst nehmen.'},
+  ],
+  'Pflegeprodukte & Wirkstoffe': [
+    {t:'mc',f:'Was macht Keratin in Haarpflegeprodukten?',o:['Färbt das Haar','Füllt Lücken in der Haarstruktur und stärkt das Haar','Macht Haare schwerer','Verändert die Farbe'],r:1,e:'Keratin dringt ins Haar ein, füllt beschädigte Stellen und stärkt die Haarstruktur.'},
+    {t:'mc',f:'Was ist der Unterschied zwischen Shampoo und Conditioner?',o:['Kein Unterschied','Shampoo reinigt, Conditioner pflegt und glättet die Cuticula','Shampoo ist teurer','Conditioner wird zuerst verwendet'],r:1,e:'Shampoo: reinigt mit Tensiden. Conditioner: pflegt, glättet Cuticula, macht Haare kämmbar.'},
+    {t:'mc',f:'Was sind Silikone in Haarpflegeprodukten?',o:['Natürliche Öle','Synthetische Stoffe die Haare glätten und glänzen lassen — aber aufgebaut werden können','Vitamine','Proteine'],r:1,e:'Silikone legen sich als Film ums Haar — sofort glatt und glänzend, aber Aufbau bei regelmäßiger Verwendung möglich.'},
+  ],
+  'Herrenservice': [
+    {t:'mc',f:'Was gehört zu einem vollständigen Herrenservice?',o:['Nur Haarschnitt','Haarschnitt, Konturenschnitt/Rasur, ggf. Bartpflege und Styling','Nur Rasur','Nur Styling'],r:1,e:'Vollständiger Herrenservice: Haarschnitt, Konturenschnitt, Bartpflege und Styling.'},
+    {t:'mc',f:'Wie pflegt man einen Bart professionell?',o:['Gar nicht','Formen, trimmen, ggf. rasieren, mit Bartöl oder Balsam pflegen','Nur waschen','Nur kürzen'],r:1,e:'Bartpflege: formen, trimmen, scharfe Konturen mit Rasierer, Bartöl oder Balsam für Pflege und Form.'},
+    {t:'mc',f:'Was ist ein Fade beim Herrenhaarschnitt?',o:['Ein Fehler','Ein weicher Übergang von sehr kurz zu länger — typisch für moderne Herrenschnitte','Ein sehr langer Schnitt','Ein Schnitt nur für Kinder'],r:1,e:'Fade: der Übergang von kurz (oft Null) zu länger wird weich und nahtlos geblendet — moderner Look.'},
+  ],
   'Hygiene & Schutzmaßnahmen': [
     {t:'mc',f:'Welche drei Hygieneebenen gibt es im Friseursalon?',o:['Reinigen, Desinfizieren, Sterilisieren','Waschen, Spülen, Trocknen','Putzen, Einsprühen, Abdecken','Wischen, Sprühen, Lagern'],r:0,e:'Reinigen → Desinfizieren → Sterilisieren. Im Salon wird meist bis zur Desinfektion gearbeitet.'},
     {t:'mc',f:'Wie lange muss ein Desinfektionsmittel mindestens einwirken?',o:['Sofort abwischen','Mindestens 30 Sekunden','5 Minuten','Über Nacht'],r:1,e:'Mindestens 30 Sekunden. Sofortiges Abwischen macht die Desinfektion wirkungslos.'},
